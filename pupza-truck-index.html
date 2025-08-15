@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pupza Truck — Pizza & Taco Hats for Dogs</title>
+  <meta name="description" content="Local truck shop selling playful pizza and taco hats for dogs. Hours, locations, and FAQs." />
+  <style>
+    :root {
+      --bg: #fff7ed;       /* warm sand */
+      --card: #ffffff;     /* white */
+      --text: #1f2937;     /* slate-800 */
+      --muted: #6b7280;    /* gray-500 */
+      --accent: #f97316;   /* pizza orange */
+      --accent-2: #84cc16; /* taco lime */
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 0; }
+    .brand { font-weight: 800; letter-spacing: 0.5px; }
+    .brand b { color: var(--accent-2); }
+    .menu { display: flex; gap: 1rem; }
+    .menu a { padding: 0.4rem 0.6rem; border-radius: 8px; }
+    .menu a:hover { background: rgba(249,115,22,0.12); }
+    .burger { display: none; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; background: transparent; color: var(--text); padding: 0.35rem 0.6rem; }
+
+    /* Hero */
+    .hero { padding: 4.5rem 0 3rem; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; margin: 0 0 0.6rem; }
+    .hero p { margin: 0 auto 1.4rem; max-width: 700px; color: var(--muted); }
+    .cta { display: inline-block; margin-top: 0.4rem; padding: 0.75rem 1rem; border-radius: 12px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #0b1020; font-weight: 700; border: none; cursor: pointer; }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { background: var(--card); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; padding: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    .card h3 { margin-top: 0; }
+    .pill { display: inline-block; font-size: 0.8rem; color: #0b1020; background: var(--accent); padding: 0.2rem 0.5rem; border-radius: 999px; margin-bottom: 0.6rem; }
+
+    /* About */
+    section { padding: 3rem 0; }
+    .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.2rem; align-items: center; }
+    .about img { width: 100%; border-radius: 14px; border: 1px solid rgba(0,0,0,0.08); }
+
+    /* Contact */
+    form { display: grid; gap: 0.6rem; max-width: 520px; }
+    input, textarea { width: 100%; padding: 0.75rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12); background: #fff; color: var(--text); }
+    button[type="submit"] { padding: 0.75rem 1rem; border-radius: 12px; background: var(--accent); color: #0b1020; font-weight: 700; border: none; cursor: pointer; }
+    button[type="submit"]:hover { filter: brightness(1.05); }
+
+    footer { text-align: center; color: var(--muted); padding: 2rem 0 3rem; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .menu { display: none; }
+      .menu.open { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.75rem 0; }
+      .burger { display: inline-block; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Pupza <b>Truck</b></div>
+      <nav class="menu" id="menu">
+        <a href="#hats">Hats</a>
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>Pizza & Taco Hats — for Dogs 🍕🌮🐶</h1>
+      <p>Pupza Truck is a local pop-up selling delightfully silly, comfy hats shaped like your favorite snacks. Bring your pup, try a hat, snap a pic, and leave with maximum tail wags.</p>
+      <a href="#hats" class="cta">See the hat lineup</a>
+    </section>
+
+    <section id="features" class="container">
+      <h2>Why you'll wag</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="pill">Comfy</span>
+          <h3>Adjustable, gentle fit</h3>
+          <p>Soft straps and lightweight foam mean happy ears and zero fuss for most pups.</p>
+        </article>
+        <article class="card">
+          <span class="pill" style="background: var(--accent-2);">Durable</span>
+          <h3>Drool-friendly materials</h3>
+          <p>Wipe-clean surfaces for quick refreshes after big adventures (and snacks).</p>
+        </article>
+        <article class="card">
+          <span class="pill">Fun</span>
+          <h3>Instant photo ops</h3>
+          <p>Perfect for birthdays, adoption days, or just because your dog is a snack.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="hats" class="container">
+      <h2>Our hats</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="pill">Best-seller</span>
+          <h3>Pizza Slice Hat</h3>
+          <p>Classic pepperoni look with cheesy triangles. Comes in Small/Medium/Large.</p>
+        </article>
+        <article class="card">
+          <span class="pill" style="background: var(--accent-2);">New</span>
+          <h3>Taco Hat</h3>
+          <p>Crunchy-shell vibe with lettuce ruffles. Adjustable chin strap for secure zoomies.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Limited</span>
+          <h3>Combo Duo</h3>
+          <p>Pizza + Taco twin pack for multi-dog families or indecisive snack lovers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About the truck</h2>
+      <div class="about">
+        <div>
+          <p>Pupza Truck is a pop-up hat shop for dogs, cruising local parks and events with wearable laughs. We design playful, comfy headwear and fit them right on site—no online checkout, just good vibes and good pups.</p>
+          <p>Follow our schedule below to catch us this week. Friendly with all breeds and kids; please keep dogs leashed.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1600&auto=format&fit=crop" alt="Happy dog wearing a costume hat" />
+      </div>
+    </section>
+
+    <section id="schedule" class="container">
+      <h2>Where to find us</h2>
+      <p>We pop up around town. Here's the usual weekly loop (check socials for changes):</p>
+      <div class="card" style="overflow:auto">
+        <table style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:0.6rem; border-bottom:1px solid rgba(0,0,0,0.08)">Day</th>
+              <th style="text-align:left; padding:0.6rem; border-bottom:1px solid rgba(0,0,0,0.08)">Location</th>
+              <th style="text-align:left; padding:0.6rem; border-bottom:1px solid rgba(0,0,0,0.08)">Hours</th>
+            </tr>
+          </thead>
+          <tbody id="schedule-body">
+            <tr data-day="1"><td style="padding:0.6rem">Monday</td><td style="padding:0.6rem">Maple Park (North Lot)</td><td style="padding:0.6rem">4:00–7:00 PM</td></tr>
+            <tr data-day="2"><td style="padding:0.6rem">Tuesday</td><td style="padding:0.6rem">Riverview Dog Run</td><td style="padding:0.6rem">4:00–7:00 PM</td></tr>
+            <tr data-day="3"><td style="padding:0.6rem">Wednesday</td><td style="padding:0.6rem">Downtown Plaza</td><td style="padding:0.6rem">4:30–7:30 PM</td></tr>
+            <tr data-day="4"><td style="padding:0.6rem">Thursday</td><td style="padding:0.6rem">Sunset Fields</td><td style="padding:0.6rem">5:00–8:00 PM</td></tr>
+            <tr data-day="5"><td style="padding:0.6rem">Friday</td><td style="padding:0.6rem">Farmers Market</td><td style="padding:0.6rem">3:00–6:00 PM</td></tr>
+            <tr data-day="6"><td style="padding:0.6rem">Saturday</td><td style="padding:0.6rem">Event Pop-up</td><td style="padding:0.6rem">Varies</td></tr>
+            <tr data-day="0"><td style="padding:0.6rem">Sunday</td><td style="padding:0.6rem">Rest & Fetch</td><td style="padding:0.6rem">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:0.6rem">Tip: replace locations/hours with your real route. You can also link a map pin here.</p>
+    </section>
+
+    <section id="faq" class="container">
+      <h2>FAQ</h2>
+      <div class="card">
+        <details>
+          <summary>Do the hats fit small and large dogs?</summary>
+          <p>Yes! We carry S/M/L with adjustable straps. If your pup has unique measurements, we can custom-fit on site.</p>
+        </details>
+        <details>
+          <summary>Are the materials safe?</summary>
+          <p>Hats are made from lightweight foam and fabric. They are novelty accessories—supervised use recommended.</p>
+        </details>
+        <details>
+          <summary>Can I book you for a party?</summary>
+          <p>Absolutely. Use the form below with your date, location, and number of dogs.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact / Book a fitting</h2>
+      <form id="contact-form">
+        <input name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input name="dog" placeholder="Dog's name & size (S/M/L)" />
+        <textarea name="message" rows="4" placeholder="When & where would you like to meet the truck?" required></textarea>
+        <button type="submit">Send</button>
+        <p id="form-status" aria-live="polite" style="color: var(--muted);"></p>
+      </form>
+      <p style="margin-top:1rem">Follow us: <a href="#">Instagram</a> · <a href="#">TikTok</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Pupza Truck. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Contact form (demo only)
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.textContent = 'Thanks! We\'ll bark back soon. (Demo only)';
+      form.reset();
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Highlight today in schedule
+    const today = new Date().getDay(); // 0=Sun..6=Sat
+    const rows = document.querySelectorAll('#schedule-body tr');
+    rows.forEach(r => {
+      if (Number(r.dataset.day) === today) {
+        r.style.background = 'rgba(249,115,22,0.10)';
+        r.style.outline = '2px solid rgba(249,115,22,0.35)';
+      }
+    });
+  </script>
+</body>
+</html>
