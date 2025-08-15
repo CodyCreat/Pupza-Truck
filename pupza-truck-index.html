@@ -139,7 +139,8 @@
           <p>Pupza Truck is a pop-up hat shop for dogs, cruising local parks and events with wearable laughs. We design playful, comfy headwear and fit them right on site—no online checkout, just good vibes and good pups.</p>
           <p>Follow our schedule below to catch us this week. Friendly with all breeds and kids; please keep dogs leashed.</p>
         </div>
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1600&auto=format&fit=crop" alt="Happy dog wearing a costume hat" />
+      <img id="dog-image" alt="Dog in snack hat" style="max-width: 320px; border-radius: 12px;">
+<p id="img-status" style="opacity:.8">Loading a fresh pup pic…</p>
       </div>
     </section>
 
@@ -233,5 +234,22 @@
       }
     });
   </script>
+  <script>
+async function loadDogImage() {
+  const img = document.getElementById('dog-image');
+  const status = document.getElementById('img-status');
+  try {
+    const res = await fetch('/api/dog-image');
+    const data = await res.json();
+    img.src = data.url;
+    status.textContent = 'New hat loaded!';
+  } catch (e) {
+    console.error(e);
+    status.textContent = 'Could not load AI image — showing fallback.';
+    img.src = 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=800';
+  }
+}
+loadDogImage();
+</script>
 </body>
 </html>
